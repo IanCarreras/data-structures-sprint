@@ -27,17 +27,17 @@ class BSTNode:
     def contains(self, target):
         if self.value == target:
             return True
-
+    
         found = False
         if self.value < target:
             if self.left is None:
                 return False
-        found = self.left.contains(target)
+            found = self.left.contains(target)
 
         if self.value >= target:
             if self.right is None:
                 return False
-        found = self.right.contains(target)
+            found = self.right.contains(target)
 
         return found
 
