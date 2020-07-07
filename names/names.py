@@ -73,10 +73,8 @@ for name in names_1:
 # loop through the second list of names and check if BST contains name
 # if does contain, add the name to duplicates list
 for name in names_2:
-    print(name)
     if bst.contains(name):
         duplicates.append(name)
-        print(duplicates)
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
