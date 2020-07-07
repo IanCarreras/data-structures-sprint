@@ -17,7 +17,8 @@ class RingBuffer:
         # make the element at that position equal to the new item
         # increment counter by +1 to represent the next position which will now be the oldest element in storage
         elif len(self.storage) == self.capacity:
-            if self.counter == 5:
+            # change to dynamic 
+            if self.counter == self.capacity:
                 self.counter = 0
             self.storage[self.counter] = item
             self.counter += 1
