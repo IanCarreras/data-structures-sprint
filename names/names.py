@@ -28,18 +28,16 @@ class BSTNode:
         if self.value == target:
             return True
     
-        found = False
-        if self.value < target:
+        if target < self.value:
             if self.left is None:
                 return False
-            found = self.left.contains(target)
-
-        if self.value >= target:
+            else:
+                return self.left.contains(target)
+        else:
             if self.right is None:
                 return False
-            found = self.right.contains(target)
-
-        return found
+            else:
+                return self.right.contains(target)
 
 start_time = time.time()
 
@@ -75,8 +73,10 @@ for name in names_1:
 # loop through the second list of names and check if BST contains name
 # if does contain, add the name to duplicates list
 for name in names_2:
+    print(name)
     if bst.contains(name):
         duplicates.append(name)
+        print(duplicates)
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
