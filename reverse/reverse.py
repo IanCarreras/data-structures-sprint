@@ -38,5 +38,50 @@ class LinkedList:
 
         return False
 
+    def print_list(self):
+        output = ''
+        current = self.head
+        while current:
+            output += f'{current.value} -> '
+            current = current.next_node
+        print(output)
+
+    # def reverse_list(self, node, prev):
+    #     # set initial values before iteration
+    #     prev = None
+    #     current = self.head
+
+    #     # iterate through list and reverse previous and next values
+    #     # create placeholder for next
+    #     # set next to previous reversing the connection between the current and next node
+    #     # set previous placeholder as current node to use in next iteration
+    #     # set current node to the placeholder value for next to continue iteration
+    #     while current is not None:
+    #         next_node = current.next_node
+    #         current.next_node = prev
+    #         prev = current
+    #         current = next_node
+
+    #     # at the end of iteration prev placeholder's value will be the last node in regular order list
+    #     # set this last node as the new head
+    #     self.head = prev
+
     def reverse_list(self, node, prev):
-        pass
+        if self.head is None or self.head.next_node is None:
+            return self.head
+        if node.next_node:
+            self.reverse_list(node.next_node, node)
+        if node.next_node is None:
+            self.head = node
+        node.next_node = prev
+
+ll = LinkedList()
+for i in range(3):
+    ll.add_to_head(i+1)
+
+ll.print_list()
+
+print('\n')
+ll.reverse_list(ll.head, None)
+
+ll.print_list()
